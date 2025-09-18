@@ -8,6 +8,11 @@ env:
     CONTAINER_NAME: "testpod"       # ECS Task Definition 컨테이너 이름
 
 phases:
+  install:
+    commands:
+      - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - unzip awscliv2.zip
+      - ./aws/install
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
